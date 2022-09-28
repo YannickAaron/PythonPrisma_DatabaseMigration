@@ -1,38 +1,27 @@
-# Python default project
+# Prisma x Python
 
-## Prerequisites
+Testing the functionality of Prisma with Python.
 
-### Install Homebrew
-install homebrew
-
-### Install pyenv
-
-### install prepare: ./husky/prepare
-
-# PythonDefaultProject
-Python Default to use for new Projects
-
-pytest: just name file _test.py
+0. fill out the `.env` file with your credentials
 
 
-poetry run python poetry-update.py -> build an npm package
+1. start the docker container
 
+```bash
+docker-compose up -d
+```
 
+2. Generating Prisma Client Python
 
-## Pre Commit
+```bash
+poetry run prisma db push
+```
 
-**[General](https://github.com/pre-commit/pre-commit-hooks)**
-Repo: [https://github.com/pre-commit/pre-commit-hooks](https://github.com/pre-commit/pre-commit-hooks)
+To change the schema use the migration as follows:
 
-Some out-of-the-box hooks for pre-commit.
-
-
-
-
-## TODO
-- [ ] add a script that automatically creates the structure needed for the project
-    - The script should be able to init poetry with the standard packages needed for the pre-commit hook
-    - The script should install husky if needed
-    - The script should differentiate between different needs for the project (e.g. notebook, code)
-    - The script should be able to select the pre-commit hook
-- [ ] add dependbot
+```bash
+# apply migrations
+poetry run prisma migrate dev --name "add comment model"
+# generate
+poetry run prisma generate
+```

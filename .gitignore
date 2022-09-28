@@ -1,5 +1,7 @@
 # make sure to use: git rm -r --cached . to ignore already tracked files
 
+*__pycache__
+
 # compiled output
 /dist
 /node_modules
@@ -15,7 +17,7 @@ poetry.lock
 .ipynb_checkpoints
 
 # env
-.env*.local
+.env
 
 # Logs
 logs

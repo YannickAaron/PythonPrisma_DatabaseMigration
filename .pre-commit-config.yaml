@@ -36,21 +36,21 @@ repos:
     hooks:
       - id: system
         name: MyPy
-        entry: sh -c 'poetry run mypy default'
+        entry: sh -c 'poetry run mypy src'
         pass_filenames: false
         language: system
   - repo: local
     hooks:
       - id: system
         name: Pylint
-        entry: sh -c 'poetry run pylint -j 0 default'
+        entry: sh -c 'poetry run pylint -j 0 src'
         pass_filenames: false
         language: system
   - repo: local
     hooks:
       - id: system
         name: Pytest
-        entry: sh -c 'poetry run pytest default'
+        entry: sh -c 'poetry run pytest src'
         pass_filenames: false
         language: system
   - repo: https://github.com/nbQA-dev/nbQA
